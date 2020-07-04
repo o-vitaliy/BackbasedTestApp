@@ -2,34 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splash">
-    <fragment
-        android:id="@+id/splash"
-        android:name="ru.ovi.backbased.presentation.splash.SplashFragment"
-        android:label="@string/app_name">
-        <action
-            android:id="@+id/action_splash_to_transactions"
-            app:destination="@id/transactions"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
-    </fragment>
+    app:startDestination="@id/citiesFragment">
 
     <fragment
-        android:id="@+id/transactions"
-        android:name="ru.ovi.backbased.presentation.main.transactions.TransactionsFragment"
-        android:label="@string/transactions.title">
-        <action
-            android:id="@+id/action_transactions_to_detialsTransactionFragment"
-            app:destination="@id/detialsTransactionFragment">
-            <argument
-                android:name="ref"
-                app:argType="string" />
-        </action>
-    </fragment>
-    <fragment
-        android:id="@+id/detialsTransactionFragment"
-        android:name="ru.ovi.backbased.presentation.main.details.DetialsTransactionFragment"
-        android:label="DetialsTransactionFragment">
-
-    </fragment>
+        android:id="@+id/citiesFragment"
+        android:name="ru.ovi.backbased.presentation.cities.CitiesFragment"
+        android:label="CitiesFragment" />
 </navigation>

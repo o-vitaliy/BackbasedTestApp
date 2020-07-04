@@ -3,27 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/itemTransactionDate"
-        android:layout_width="0dp"
+        android:id="@+id/itemCityTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:textSize="16sp"
         tools:text="@tools:sample/date/hhmmss" />
 
     <TextView
-        android:id="@+id/itemTransactionStatus"
-        android:layout_width="wrap_content"
+        android:id="@+id/itemCitySubtite"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="@tools:sample/date/hhmmss" />
-
-    <TextView
-        android:id="@+id/itemTransactionAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        tools:text="100.00$" />
 
 </LinearLayout>
