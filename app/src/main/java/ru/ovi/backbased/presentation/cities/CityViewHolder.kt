@@ -7,7 +7,8 @@ import ru.ovi.backbased.R
 import ru.ovi.backbased.data.entity.CityEntity
 
 class CityViewHolder(
-    view: View, private val onClick: (CityEntity) -> Unit
+    view: View,
+    private val onClick: (CityEntity) -> Unit
 ) : RecyclerView.ViewHolder(view) {
 
     fun bind(value: CityEntity) {
@@ -30,6 +31,5 @@ class CityViewHolder(
 
     companion object {
         const val LAYOUT_ID = R.layout.item_city
-        private const val DATE_FORMAT = "yyyy-MM-dd HH:mm"
     }
 }

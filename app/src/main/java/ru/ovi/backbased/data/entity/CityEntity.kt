@@ -12,7 +12,7 @@ class CityEntity(
     val country: String,
     val name: String,
     @SerializedName("coord") val coordinates: Coordinates
-) : FilterPropertyProvider , Parcelable{
+) : FilterPropertyProvider, Parcelable {
     class List : ArrayList<CityEntity>()
 
     override fun filterProperty(): String = name
