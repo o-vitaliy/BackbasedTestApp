@@ -23,20 +23,17 @@ class AssetsContentLoaderTest {
         contentLoader = AssetsContentLoader(app)
     }
 
-
     @Test
     fun openExistingPath() {
         val inputStream = contentLoader.load("cities.json")
-        assertNotNull("assert inout stream is not null", inputStream)
+        assertNotNull("inout stream is null", inputStream)
 
         val notEmpty = inputStream.available() > 0
-        assertTrue("assert inout stream is not empty", notEmpty)
+        assertTrue("inout stream is empty", notEmpty)
     }
 
     @Test(expected = Exception::class)
     fun failOpeningNonExistingPath() {
         contentLoader.load("non_existing_path.json")
     }
-
-
 }
