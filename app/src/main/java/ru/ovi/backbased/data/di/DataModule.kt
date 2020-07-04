@@ -16,8 +16,6 @@ import ru.ovi.backbased.data.filter.FilterDataProvider
 import ru.ovi.backbased.data.filter.SimpleDataFilter
 import ru.ovi.backbased.data.loader.AssetsContentLoader
 import ru.ovi.backbased.data.loader.ContentLoader
-import ru.ovi.backbased.data.transactions.TransactionDataSource
-import ru.ovi.backbased.data.transactions.TransactionRemoteDataSource
 import ru.ovi.backbased.domain.common.ResourceProvider
 import ru.perevozka24.perevozka24.data.prefs.PrefsSourceFactory
 
@@ -38,10 +36,6 @@ val dataModule = Kodein.Module("data") {
 
     bind<ContentLoader>() with singleton {
         AssetsContentLoader(instance())
-    }
-
-    bind<TransactionDataSource>() with singleton {
-        TransactionRemoteDataSource()
     }
 
     bind<CitiesDataSource>() with singleton {
