@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Backbased TestApp</string>
+
+    <string name="transactions.title">Transactions</string>
+    <string name="transactions.average">Average</string>
+    <string name="transactions.total">Total</string>
+
+    <string name="form.validate.invalid_email">Неправильный формат имейла</string>
+    <string name="form.validate.required">Поле должно быть заполнено</string>
+
+    <string name="error.no_internet_connection">Отсутствует интернет соединение</string>
+    <string name="error.something_wrong">Что-то пошло не так. Пожалуйста, попробуйте снова</string>
+
+    <string name="nothing_found">Ничего не найдено</string>
+
+    <string name="default_login" />
+    <string name="default_password" />
+</resources>

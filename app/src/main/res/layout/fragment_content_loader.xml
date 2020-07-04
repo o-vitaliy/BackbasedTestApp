@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ViewStub
+        android:id="@+id/containerContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/content" />
+
+    <include
+        android:id="@+id/containerError"
+        layout="@layout/item_error" />
+
+    <include
+        android:id="@+id/contentEmpty"
+        layout="@layout/item_empty" />
+
+    <include
+        android:id="@+id/containerLoading"
+        layout="@layout/item_loading" />
+
+</FrameLayout>

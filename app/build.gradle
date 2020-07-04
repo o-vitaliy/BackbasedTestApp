@@ -1,0 +1,97 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+apply from: "../config/quality/quality.gradle"
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "ru.ovi.backbased"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs{
+        release {
+            storeFile file("./../keys/key.jks")
+            storePassword "8acw15zcrjgCSc1a"
+            keyAlias "alias"
+            keyPassword "asdq3WksF8LLirX6"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro",
+                    "retrofit2.pro",
+                    "glide.pro",
+                    "okhttp3.pro"
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    // App dependencies
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+
+    implementation "androidx.annotation:annotation:$androidXAnnotations"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayoutVersion"
+    // Architecture Components
+    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-common-java8:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    //fragments
+    implementation "androidx.fragment:fragment:$fragmentVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
+
+    // kodein
+    implementation "org.kodein.di:kodein-di-generic-jvm:$kodeinVersion"
+    implementation "org.kodein.di:kodein-di-framework-android-x:$kodeinVersion"
+
+    // gson - json parser
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
+    // Assertions
+    // AndroidX Test - Instrumented testing
+    androidTestImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    androidTestImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+    androidTestImplementation "androidx.test:rules:$androidXTestRulesVersion"
+
+    testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+}
+
+check.dependsOn "detekt", "checkstyle", "pmd", "lint"
+task lcheck(dependsOn: ["detekt", "checkstyle"])

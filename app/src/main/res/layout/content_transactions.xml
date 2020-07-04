@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.main.transactions.TransactionsFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/transactionsList"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/transaction_bottom_bar_height"
+        android:text="@string/transactions.title" />
+
+    <View
+        android:id="@+id/transactionsSammyBg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/transaction_bottom_bar_height"
+        android:background="@drawable/white_gradient"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/transactionsAverageTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/transactions.average"
+        app:layout_constraintBottom_toTopOf="@id/transactionsAverageAmount"
+        app:layout_constraintEnd_toStartOf="@id/transactionsSummaryTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/transactionsSammyBg" />
+
+    <TextView
+        android:id="@+id/transactionsAverageAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/transactions.average"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/transactionsSummaryAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transactionsAverageTitle" />
+
+    <TextView
+        android:id="@+id/transactionsSummaryTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/transactions.total"
+        app:layout_constraintBottom_toTopOf="@id/transactionsSummaryAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/transactionsAverageTitle"
+        app:layout_constraintTop_toTopOf="@id/transactionsSammyBg" />
+
+    <TextView
+        android:id="@+id/transactionsSummaryAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/transactionsAverageAmount"
+        app:layout_constraintTop_toBottomOf="@id/transactionsSummaryTitle"
+        tools:text="@string/transactions.total" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
