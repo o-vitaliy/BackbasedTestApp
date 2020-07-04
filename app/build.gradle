@@ -18,7 +18,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs{
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    signingConfigs {
         release {
             storeFile file("./../keys/key.jks")
             storePassword "8acw15zcrjgCSc1a"
@@ -91,6 +97,7 @@ dependencies {
     androidTestImplementation "androidx.test:rules:$androidXTestRulesVersion"
 
     testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
 }
 
 check.dependsOn "detekt", "checkstyle", "pmd", "lint"
