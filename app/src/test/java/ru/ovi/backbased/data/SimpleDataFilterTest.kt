@@ -21,8 +21,14 @@ class SimpleDataFilterTest {
     }
 
     @Test
-    fun testFilterEmptyQuery() {
+    fun testFilterNullQuery() {
         val result = filter.filter(null)
+        assertEquals("expected size is not " + items.size, items.size, result.size)
+    }
+
+    @Test
+    fun testFilterEmptyQuery() {
+        val result = filter.filter("")
         assertEquals("expected size is not " + items.size, items.size, result.size)
     }
 
