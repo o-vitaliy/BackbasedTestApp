@@ -5,13 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.kodein
 import ru.ovi.backbased.R
-import ru.ovi.backbased.presentation.viewModel
 
 class SplashFragment : Fragment(), KodeinAware {
     override val kodein: Kodein by kodein()

@@ -34,7 +34,7 @@ class TransactionsFragment : BaseContentLoaderFragment(), KodeinAware {
             transactionsAverageAmount.text = value.average?.toPrice() ?: ""
             transactionsSummaryAmount.text = value.total.toPrice()
 
-            //adapter.update(value.transactions.map { TransactionItem(it) })
+            // adapter.update(value.transactions.map { TransactionItem(it) })
         })
     }
 }

@@ -1,20 +1,14 @@
 package ru.ovi.backbased.data
 
-import android.os.Build
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.annotation.Config
 import ru.ovi.backbased.data.cities.CitiesFilterDataProvider
 import ru.ovi.backbased.data.cities.citiesMockDataSource
 import ru.ovi.backbased.data.cities.items
 import ru.ovi.backbased.data.entity.CityEntity
 import ru.ovi.backbased.data.filter.SimpleDataFilter
 
-@RunWith(AndroidJUnit4::class)
-@Config(sdk = [Build.VERSION_CODES.P])
 class SimpleDataFilterTest {
 
     lateinit var filter: SimpleDataFilter<CityEntity>

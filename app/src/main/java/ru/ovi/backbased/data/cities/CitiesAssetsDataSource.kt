@@ -19,5 +19,4 @@ class CitiesAssetsDataSource(
     private companion object {
         const val CITIES_PATH = "cities.json"
     }
-
 }

@@ -9,8 +9,8 @@ class CityEntity(
     val country: String,
     val name: String,
     @SerializedName("coord") val coordinates: Coordinates
-): FilterPropertyProvider {
+) : FilterPropertyProvider {
     class List : ArrayList<CityEntity>()
 
-    override fun filterProperty(): String  = name
+    override fun filterProperty(): String = name
 }

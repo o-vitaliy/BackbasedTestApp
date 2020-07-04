@@ -2,8 +2,7 @@ package ru.ovi.backbased.data.transactions
 
 import ru.ovi.backbased.data.transactions.response.TransactionsResponse
 
-class TransactionRemoteDataSource(
-) : TransactionDataSource {
+class TransactionRemoteDataSource : TransactionDataSource {
     override suspend fun getTransactions(): TransactionsResponse {
         TODO()
     }
