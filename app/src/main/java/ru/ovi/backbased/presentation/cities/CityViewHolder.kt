@@ -6,7 +6,9 @@ import kotlinx.android.synthetic.main.item_city.view.*
 import ru.ovi.backbased.R
 import ru.ovi.backbased.data.entity.CityEntity
 
-class CityViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class CityViewHolder(
+    view: View, private val onClick: (CityEntity) -> Unit
+) : RecyclerView.ViewHolder(view) {
 
     fun bind(value: CityEntity) {
         with(itemView) {
@@ -22,13 +24,7 @@ class CityViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                 value.coordinates.longitude
             )
 
-            setOnClickListener {
-                /*  val bundle = bundleOf("ref" to value)
-                    findNavController().navigate(
-                    R.id.action_transactions_to_detialsTransactionFragment,
-                    bundle
-                )*/
-            }
+            setOnClickListener { onClick(value) }
         }
     }
 

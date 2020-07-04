@@ -5,13 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.ovi.backbased.data.entity.CityEntity
 
-class CitiesAdapter : RecyclerView.Adapter<CityViewHolder>() {
+class CitiesAdapter(
+    private val onClick: (CityEntity) -> Unit
+) : RecyclerView.Adapter<CityViewHolder>() {
 
     private val items = ArrayList<CityEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityViewHolder {
         return CityViewHolder(
-            LayoutInflater.from(parent.context).inflate(CityViewHolder.LAYOUT_ID, parent, false)
+            LayoutInflater.from(parent.context).inflate(CityViewHolder.LAYOUT_ID, parent, false),
+            onClick
         )
     }
 

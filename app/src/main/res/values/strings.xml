@@ -16,6 +16,6 @@
     <string name="default_login" />
     <string name="default_password" />
 
-    <string name="city_title_format">%s %s</string>
-    <string name="city_subtitle_format">%.6f %.6f</string>
+    <string name="city_title_format">%s, %s</string>
+    <string name="city_subtitle_format">%.6f : %.6f</string>
 </resources>

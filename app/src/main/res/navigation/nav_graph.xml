@@ -7,5 +7,19 @@
     <fragment
         android:id="@+id/citiesFragment"
         android:name="ru.ovi.backbased.presentation.cities.CitiesFragment"
-        android:label="CitiesFragment" />
+        android:label="CitiesFragment">
+        <action
+            android:id="@+id/action_citiesFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="ru.ovi.backbased.presentation.map.MapFragment"
+        android:label="MapFragment">
+        <argument
+            android:name="city"
+            app:argType="ru.ovi.backbased.data.entity.CityEntity" />
+
+    </fragment>
+
 </navigation>

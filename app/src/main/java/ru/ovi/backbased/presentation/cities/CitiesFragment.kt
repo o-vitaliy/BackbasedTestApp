@@ -3,6 +3,7 @@ package ru.ovi.backbased.presentation.cities
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.content_cities.*
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -19,7 +20,11 @@ class CitiesFragment : BaseContentLoaderFragment(), KodeinAware {
 
     override val contentLayoutId: Int = R.layout.content_cities
 
-    private val adapter = CitiesAdapter()
+    private val adapter = CitiesAdapter {
+        findNavController().navigate(
+            CitiesFragmentDirections.actionCitiesFragmentToMapFragment(it)
+        )
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
