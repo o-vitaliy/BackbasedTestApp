@@ -42,8 +42,8 @@ class CitiesAssetsDataSourceTest {
 
         val firstCity = cities.first()
         assertThat(firstCity, instanceOf(CityEntity::class.java))
-        assertEquals(firstCity.country, "UA")
-        assertEquals(firstCity.name, "Hurzuf")
+        assertEquals("BE", firstCity.country)
+        assertEquals("'t Hoeksken", firstCity.name)
         assertNotNull("coordinates are empty", firstCity.coordinates)
     }
 }

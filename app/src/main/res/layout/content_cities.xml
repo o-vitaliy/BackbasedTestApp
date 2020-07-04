@@ -6,11 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".presentation.cities.CitiesFragment">
 
+    <EditText
+        android:id="@+id/citiesFilter"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="@dimen/small_padding"
+        android:layout_marginEnd="@dimen/small_padding"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:hint="@string/search"
+        android:imeOptions="actionSearch"
+        android:inputType="textFilter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@id/citiesFilter" />
+
+    <ImageView
+        android:id="@+id/citiesFilterClear"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="2dp"
+        android:padding="2dp"
+
+        android:src="@drawable/ic_clear"
+        app:layout_constraintBottom_toBottomOf="@+id/citiesFilter"
+        app:layout_constraintEnd_toEndOf="@+id/citiesFilter"
+        app:layout_constraintTop_toTopOf="@+id/citiesFilter" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/citiesList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/small_padding"
         android:text="@string/transactions.title"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/citiesFilter" />
+
+    <include
+        android:id="@+id/citiesEmpty"
+        layout="@layout/item_empty" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

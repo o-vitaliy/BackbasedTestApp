@@ -5,17 +5,14 @@
     <string name="transactions.average">Average</string>
     <string name="transactions.total">Total</string>
 
-    <string name="form.validate.invalid_email">Неправильный формат имейла</string>
-    <string name="form.validate.required">Поле должно быть заполнено</string>
+    <string name="nothing_found">No results</string>
 
-    <string name="error.no_internet_connection">Отсутствует интернет соединение</string>
-    <string name="error.something_wrong">Что-то пошло не так. Пожалуйста, попробуйте снова</string>
-
-    <string name="nothing_found">Ничего не найдено</string>
+    <string name="error.something_wrong">Sorry, unexpected error</string>
 
     <string name="default_login" />
     <string name="default_password" />
 
     <string name="city_title_format">%s, %s</string>
     <string name="city_subtitle_format">%.6f : %.6f</string>
+    <string name="search">Search</string>
 </resources>

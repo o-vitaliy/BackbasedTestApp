@@ -1,6 +1,4 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
     <dimen name="default_padding">16dp</dimen>
-
-    <dimen name="transaction_bottom_bar_height">72dp</dimen>
 </resources>

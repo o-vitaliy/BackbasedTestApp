@@ -14,10 +14,6 @@
         layout="@layout/item_error" />
 
     <include
-        android:id="@+id/contentEmpty"
-        layout="@layout/item_empty" />
-
-    <include
         android:id="@+id/containerLoading"
         layout="@layout/item_loading" />
 

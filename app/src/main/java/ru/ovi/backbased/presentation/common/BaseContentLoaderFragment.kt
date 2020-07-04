@@ -12,7 +12,6 @@ import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_content_loader.*
 import ru.ovi.backbased.R
 import ru.ovi.backbased.domain.common.Result
-import ru.ovi.backbased.domain.common.isEmpty
 
 abstract class BaseContentLoaderFragment : Fragment() {
 
@@ -37,27 +36,20 @@ abstract class BaseContentLoaderFragment : Fragment() {
             when (it) {
                 is Result.Loading -> showOnly(
                     containerLoading,
-                    containerError, contentView, contentEmpty
+                    containerError, contentView
                 )
                 is Result.Error -> {
                     containerError.findViewById<TextView>(R.id.errorMessageText).text = it.message
                     showOnly(
                         containerError,
-                        containerLoading, contentView, contentEmpty
+                        containerLoading, contentView
                     )
                 }
                 is Result.Success ->
-                    if (it.isEmpty()) {
-                        showOnly(
-                            contentEmpty,
-                            contentView, containerError, containerLoading
-                        )
-                    } else {
-                        showOnly(
-                            contentView,
-                            contentEmpty, containerError, containerLoading
-                        )
-                    }
+                    showOnly(
+                        contentView,
+                        containerError, containerLoading
+                    )
             }
         })
     }
