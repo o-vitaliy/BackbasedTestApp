@@ -4,8 +4,8 @@ import android.app.Application
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
-import ru.ovi.backbased.data.di.dataModule
-import ru.ovi.backbased.data.di.repositoryModule
+import ru.ovi.backbased.data.dataModule
+import ru.ovi.backbased.domain.repositoryModule
 import ru.ovi.backbased.presentation.viewModelModule
 
 class App : Application(), KodeinAware {

@@ -4,14 +4,13 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_city.view.*
 import ru.ovi.backbased.R
-import ru.ovi.backbased.data.entity.CityEntity
 
 class CityViewHolder(
     view: View,
-    private val onClick: (CityEntity) -> Unit
+    private val onClick: (ru.ovi.backbased.data.entity.CityEntity) -> Unit
 ) : RecyclerView.ViewHolder(view) {
 
-    fun bind(value: CityEntity) {
+    fun bind(value: ru.ovi.backbased.data.entity.CityEntity) {
         with(itemView) {
             itemCityTitle.text = resources.getString(
                 R.string.city_title_format,
@@ -30,6 +29,6 @@ class CityViewHolder(
     }
 
     companion object {
-        const val LAYOUT_ID = R.layout.item_city
+         val LAYOUT_ID = R.layout.item_city
     }
 }

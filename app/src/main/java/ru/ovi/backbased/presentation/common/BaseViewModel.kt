@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import ru.ovi.backbased.R
-import ru.ovi.backbased.domain.common.ResourceProvider
+import ru.ovi.backbased.data.ResourceProvider
 import ru.ovi.backbased.domain.common.Result
 import ru.ovi.backbased.domain.common.postValue
 
