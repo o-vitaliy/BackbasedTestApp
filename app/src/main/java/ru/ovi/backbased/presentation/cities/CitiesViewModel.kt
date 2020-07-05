@@ -4,9 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import ru.ovi.backbased.data.entity.CityEntity
 import ru.ovi.backbased.domain.cities.CitiesRepository
-import ru.ovi.backbased.domain.common.ResourceProvider
 import ru.ovi.backbased.domain.common.Result
 import ru.ovi.backbased.domain.common.postValue
 import ru.ovi.backbased.presentation.common.BaseViewModel
@@ -16,7 +14,7 @@ class CitiesViewModel(
     resourceProvider: ResourceProvider
 ) : BaseViewModel(resourceProvider) {
 
-    val cities: LiveData<Result<Collection<CityEntity>>> = MutableLiveData()
+    val cities: LiveData<Result<Collection<ru.ovi.backbased.data.entity.CityEntity>>> = MutableLiveData()
     val clearIsVisible: LiveData<Boolean> = MutableLiveData(false)
 
     init {

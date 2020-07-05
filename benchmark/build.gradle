@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'androidx.benchmark'
+
+android {
+    compileSdkVersion 29
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+
+        testInstrumentationRunner 'androidx.benchmark.junit4.AndroidBenchmarkRunner'
+    }
+    testBuildType = "release"
+    signingConfigs {
+        release {
+            storeFile file("./../keys/key.jks")
+            storePassword "8acw15zcrjgCSc1a"
+            keyAlias "alias"
+            keyPassword "asdq3WksF8LLirX6"
+        }
+    }
+
+    buildTypes {
+        release {
+            isDefault = true
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles "benchmark-proguard-rules.pro"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    androidTestImplementation project(":data")
+
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+    androidTestImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    androidTestImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+    androidTestImplementation "androidx.test:rules:$androidXTestRulesVersion"
+    androidTestImplementation "androidx.benchmark:benchmark-junit4:$benchmarkVersion"
+
+
+    // gson - json parser
+    androidTestImplementation "com.google.code.gson:gson:$gsonVersion"
+
+    // kodein
+    androidTestImplementation "org.kodein.di:kodein-di-generic-jvm:$kodeinVersion"
+    androidTestImplementation "org.kodein.di:kodein-di-framework-android-x:$kodeinVersion"
+
+}
