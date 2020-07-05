@@ -3,7 +3,7 @@
 Task is [here](../blob/master/Instructions for the test.md)
 
 Application was implemented in Kotlin.  
-Navigation was done using [Android navigation](https://developer.android.com/guide/navigation). 
+Navigation was done using [Android navigation](https://developer.android.com/guide/navigation).  
 For DI was chosen [Kodein](https://kodein.org/Kodein-DI/).  
 
 For filtering data were implemented to filters **SimpleDataFilter** and **LetterStagedDataFilter**.    
