@@ -12,19 +12,23 @@ import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance
 import org.kodein.di.generic.singleton
 import ru.ovi.backbased.data.dataModule
+import ru.ovi.backbased.data.entity.CityEntity
+import ru.ovi.backbased.data.filter.DataFilter
+import ru.ovi.backbased.data.filter.LetterStagedDataFilter
+import ru.ovi.backbased.data.filter.SimpleDataFilter
 import kotlin.system.measureNanoTime
 
 @RunWith(AndroidJUnit4::class)
 class FilterBenchmark : KodeinAware {
 
     private val filtersModule = Kodein.Module(name = "filtersModule") {
-        bind<ru.ovi.backbased.data.filter.SimpleDataFilter<ru.ovi.backbased.data.entity.CityEntity>>() with singleton {
-            ru.ovi.backbased.data.filter.SimpleDataFilter<ru.ovi.backbased.data.entity.CityEntity>(
+        bind<SimpleDataFilter<CityEntity>>() with singleton {
+            SimpleDataFilter<CityEntity>(
                 instance()
             )
         }
-        bind<ru.ovi.backbased.data.filter.LetterStagedDataFilter<ru.ovi.backbased.data.entity.CityEntity>>() with singleton {
-            ru.ovi.backbased.data.filter.LetterStagedDataFilter<ru.ovi.backbased.data.entity.CityEntity>(
+        bind<LetterStagedDataFilter<CityEntity>>() with singleton {
+            LetterStagedDataFilter<CityEntity>(
                 instance()
             )
         }
@@ -35,29 +39,28 @@ class FilterBenchmark : KodeinAware {
         import(filtersModule)
     }
 
-
     @Test
     fun testSimpleFilter() {
-        val filter: ru.ovi.backbased.data.filter.SimpleDataFilter<ru.ovi.backbased.data.entity.CityEntity> by instance()
+        val filter: SimpleDataFilter<CityEntity> by instance()
         runFiltering(filter)
     }
 
     @Test
     fun testStageFilter() {
-        val filter: ru.ovi.backbased.data.filter.LetterStagedDataFilter<ru.ovi.backbased.data.entity.CityEntity> by instance()
+        val filter: LetterStagedDataFilter<CityEntity> by instance()
         runFiltering(filter)
     }
 
-
-    private fun runFiltering(filter: ru.ovi.backbased.data.filter.DataFilter<ru.ovi.backbased.data.entity.CityEntity>) {
+    private fun runFiltering(filter: DataFilter<CityEntity>) {
         filter.filter(null)
-        val t = measureNanoTime {
-            filter.filter(null)
-            filter.filter("a")
-            filter.filter("ab")
-            filter.filter("")
-        }
+        val city = "Zaponor’ye"
 
-        println("done in $t by ${filter::class.java.name}")
+        for (i in city.indices) {
+            val query = city.substring(0, i)
+            val t = measureNanoTime {
+                filter.filter(query)
+            }
+            println("Filter ${filter::class.java.canonicalName} query: $query done at $t")
+        }
     }
 }
