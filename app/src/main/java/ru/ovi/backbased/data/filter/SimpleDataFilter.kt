@@ -4,7 +4,7 @@ package ru.ovi.backbased.data.filter
  * @see DataFilter
  *
  * Simple implementation of filtering data.
- * Every item is checked whether it start with a query string.
+ * Every item is checked whether it starts with a query string.
  */
 class SimpleDataFilter<T : FilterPropertyProvider>(
     provider: FilterDataProvider<T>

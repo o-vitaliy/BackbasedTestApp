@@ -14,7 +14,7 @@ class CitiesAssetsDataSource(
         val inputStream = contentLoader.load(CITIES_PATH)
         val reader = InputStreamReader(inputStream)
         return gson.fromJson<List<CityEntity>>(reader, CityEntity.List::class.java)
-            .sortedBy { it.name }
+            .sorted()
     }
 
     private companion object {

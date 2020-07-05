@@ -12,8 +12,9 @@ class CityEntity(
     val country: String,
     val name: String,
     @SerializedName("coord") val coordinates: Coordinates
-) : FilterPropertyProvider, Parcelable {
+) : FilterPropertyProvider, Parcelable, Comparable<CityEntity> {
     class List : ArrayList<CityEntity>()
 
     override fun filterProperty(): String = name
+    override fun compareTo(other: CityEntity): Int = name.compareTo(other.name, true)
 }

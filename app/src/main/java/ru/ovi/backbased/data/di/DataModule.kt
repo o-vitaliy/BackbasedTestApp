@@ -13,7 +13,7 @@ import ru.ovi.backbased.data.cities.CitiesFilterDataProvider
 import ru.ovi.backbased.data.entity.CityEntity
 import ru.ovi.backbased.data.filter.DataFilter
 import ru.ovi.backbased.data.filter.FilterDataProvider
-import ru.ovi.backbased.data.filter.SimpleDataFilter
+import ru.ovi.backbased.data.filter.LetterStagedDataFilter
 import ru.ovi.backbased.data.loader.AssetsContentLoader
 import ru.ovi.backbased.data.loader.ContentLoader
 import ru.ovi.backbased.domain.common.ResourceProvider
@@ -27,7 +27,7 @@ val dataModule = Kodein.Module("data") {
     bind<Gson>() with singleton { GsonFactory.create() }
 
     bind<DataFilter<CityEntity>>() with singleton {
-        SimpleDataFilter<CityEntity>(instance())
+        LetterStagedDataFilter<CityEntity>(instance())
     }
 
     bind<ResourceProvider>() with singleton {

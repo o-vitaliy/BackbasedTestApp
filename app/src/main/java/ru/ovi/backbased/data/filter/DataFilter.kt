@@ -12,7 +12,7 @@ abstract class DataFilter<T : FilterPropertyProvider>(dataProvider: FilterDataPr
 
     /**
      * Method returns collection that filtered by query string
-     * If the query is null or empty method returns original item list
+     * If the query is null or empty method returns the original item list
      */
     abstract fun filter(query: String?): Collection<T>
 }
